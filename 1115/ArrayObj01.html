@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        Language = new Array("HTML", "javascript", "ASP","JSP", "PHP");
+
+        Language.sort();
+        for (var i = 0; i < Language.length; i++){
+            document.write(Language[i] + " ");            
+        }
+        document.write("<br>==================<br>");
+        Language.reverse();
+        for (var i = 0; i < Language.length; i++){
+            document.write(Language[i] + " ");            
+        }
+        document.write("<br>==================<br>");
+        a = Language.pop();
+        for (var i = 0; i < Language.length; i++){
+            document.write(Language[i] + " ");            
+        }
+        document.write("<br>==================<br>");
+        document.write(a);
+        document.write("<br>==================<br>");
+        Language.shift();
+        for (var i = 0; i < Language.length; i++){
+            document.write(Language[i] + " ");            
+        }
+        document.write("<br>==================<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
