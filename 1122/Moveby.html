@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.defaultStatus = "브라우저의 위치 조정하기"
+
+        function resize_by(x,y)
+        {
+            window.resizeby(x,y);
+        }
+        function resizeTo(){
+            window.resizeTo
+                (window.screen.availWidth / 2,
+                window.screen.availHeight / 2);
+        }
+    </script>
+</head>
+<body onLoad ="window.resizeTo(500,300)">
+    <form>
+        <hr>
+        브라우저의 크기조정:
+        <input type ="button" value = "확대" onclick = "resize_by(20,20)">
+        <input type ="button" value = "축소" onclick = "resize_by(-20,-20)">
+        <hr>
+        브라우저의 위치이동 :
+        <input type ="button" value = "상" onclick = "window.moveBy(0,-20)">
+        <input type ="button" value = "하" onclick = "window.moveBy(0,20)">
+        <input type ="button" value = "좌" onclick = "window.moveBy(-20,0)">
+        <input type ="button" value = "우" onclick = "window.moveBy(20,0)">
+        <hr>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHandler</title>
+    <script language = "javascript">
+        function loadEvent(){
+            alert("페이지가 로드되었습니다.");
+        }
+        function unloadEvent(){
+            alert("페이지가 언로드되었습니다.");
+        }
+        function clickEvent1(){
+            alert("버튼 1을 클릭하였습니다.");
+        }
+        function clickEvent2(){
+            alert("버튼 2을 클릭하였습니다.");
+        }
+        function onMouseOver(){
+            alert("focus 이벤트");
+        }
+        function blurEvent(){
+            alert("Blur 이벤트");
+        }
+
+    </script>
+</head>
+    <body onload="loadEvent()" onUnLoad = "unloadEvent()">
+        <form>
+            <input type ="button" value ="button1" onClick="clickEvent1()">
+            <input type ="button" value ="button2" onClick="clickEvent2()">
+            <input type ="button" value ="button3" onFocus="focusEvent()" onBlur="blurEvent()">
+        </form>
+    </body>
+</html>

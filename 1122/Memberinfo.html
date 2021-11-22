@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script language = "javascript">
+
+        function drop(n){
+            self.moveBy(0,900)
+
+            for(i = n; i > 0; i--){
+                self.moveBy(0,3)
+            }
+        }
+        function getCookie(name){
+            var cname = name + "=";
+            var dc = document.cookie;
+            if (dc.length > 0){
+                begin = dc.indexOf(cname);
+                    if(begin != -1){
+                        begin += cname.length;
+                        end = dc.indexOf(";",begin);
+                        if(end == -1) end = dc.length;
+                        return unescape(dc.substring(begin,end));
+                    }
+            }
+            return null;
+        }
+
+        function setCookie(name, value, expires){
+            document.cookie = name + "=" + escape(value) + "; path=/" + ((expires == null)? "" : "; expires=" + expires.toGMTString());
+        }
+
+        function delCookie()
+        {
+            setCookie("yourname", "")
+            setCookie("yourpassword", "")
+            setCookie("yourid", "")
+            setCookie("NotOpen","")
+            location.reload()
+        }
+
+        function getValue(element)
+        {
+            var value = getCookie(element.name);
+            if(value != null) element.value = value;
+        }
+        function setValue(element)
+        {
+            setCookie(element.name, element.value, exp);
+        }
+        function Reset_Cnt()
+        {
+            var myday = new Date()
+            var CookieCounter = 0
+            setCookie("CookieCounter", CookieCounter, myday) 
+            location.reload()
+        }
+        var exp = new Date();
+        exp.setTime(exp.getTime() + (1000 * 60 * 60 *24*31));
+
+        if (getCookie("NotOpen") != "checked")
+        {
+            window.open('new.html', 'pop', 'scropllbar = yes, left =200, top=100, width=400, height=100');
+        }
+    </script>
+</head>
+<body onLoad="drop(300)">
+    <form name="form" onload = "focus('form.CookieCounter')")>
+        <table border ="1">
+            <tr>
+                <td> NAME </td>
+                <td>
+                    <input type = "text" name= "yourname" onfocus = "getValue(this)" onblur = "setValue(this)">
+                </td>
+            </tr>
+            <tr>
+                <td> TD </td>
+                <td>
+                    <input type = "text" name = "yourid" onfocus = "getValue(this)" onblur = "setValue(this)">
+                </td>
+            </tr>
+            <tr>
+                <td> Password </td>
+                <td>
+                    <input type = "password" name = "yourpassword" onfocus = "getValue(this)" onblur = "setValue(this)">
+                </td>
+            </tr>
+        </table>
+    </form>    
+    <script language = "javascript">
+        var myday = new Date();
+        myday.setTime(myday.getTime() + (365*24*60*60*1000));
+
+        if(! (CookieCounter = getCookie("CookieCounter")))
+        CookieCounter = 0;
+        CookieCounter++;
+        document.write("이 홈페이지에</font> <font color=red><b>" + CookieCounter + "</font></b>번째 방문하셨습니다. </font><p>");
+            setCookie("CookieCounter", CookieCounter, myday);
+    </script>
+    <form>
+        <input type="button" value = "모든 쿠키값의 초기화" onclick = "delCookie()">
+        <input type="button" value = "방문 카운트 초기화" onclick = "Reset_Cnt()">
+    </form>
+</body>
+</html>
